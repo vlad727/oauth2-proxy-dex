@@ -1,0 +1,6 @@
+you access http://whereveryourproxyis:4180 ,
+oauth2-proxy redirects https://xxx.xxx.xxx.xxx/oauth2/start checks if there is authenticated session and if not
+redirects further to login-url https://xxx.xxx.xxx.xxx/dex/auth
+then Dex should authenticate user ( prompt with form to enter username and password )
+after successful authentication on Dex will send data to /oauth2/callback so that oauth2-proxy can retrieve token from Dex ( this actually happens through the browser but never mind)
+when ouath2-proxy successfully retrieves token it should present content from upstream localhost:8080
