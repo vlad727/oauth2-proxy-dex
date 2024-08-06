@@ -1,5 +1,5 @@
 ### configuration dex and oauth2-proxy for kubernetes application 
-### oauth2-proxy like sidecar just add new container to your deployment
+### oauth2-proxy like sidecar just add new container to your deployment 
 ### new static clients should be added to config.yaml dex example below
 ### 
 ### enviroments for oauth2-proxy + dex static client config.yaml 
@@ -12,10 +12,10 @@ spec:
         args:
           - --client-id=oauth2-proxy
           - --client-secret=hlW2pGGraHDuMAZ4qFEKg2fUHHxr8acDEgDEcIg7RX0U7A9
-          - --oidc-issuer-url=https://dex.apps.<some-domain>.com    ### your dex 
+          - --oidc-issuer-url=https://dex.apps.<some-domain>.com    ### your dex issuer 
           - --cookie-secret=VXNSZ1FqMXFId2YwWWt3UlVTUjFXQT09
           - --ssl-insecure-skip-verify=true
-          - --upstream=http://127.0.0.1:8080/home              
+          - --upstream=http://127.0.0.1:8080             
           - --ssl-upstream-insecure-skip-verify=true
           - --http-address=0.0.0.0:4180
           - --redirect-url=https://your-app.apps.<some-domain>/oauth2/callback
@@ -60,8 +60,7 @@ staticClients:
   - https://localhost:9000/auth/callback
   - http://localhost:18000
   secret: hlW2pGGraHDuMAZ4qFEKg2fUHHxr8acDEgDEcIg7RX0U7A9
-Note: 
-How to redirect request to main page of your application after authentication
-for this you should do request https://your-app.apps.<some-domain>.com/home ### with path /home and your upstream should be --upstream=http://127.0.0.1:8080/home also with path /home
 
+### golang application handler
+http.HandleFunc("/", home.HomeFunc)             
 
