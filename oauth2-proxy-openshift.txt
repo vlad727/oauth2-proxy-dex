@@ -1,0 +1,23 @@
+        args:
+          - '--provider=openshift'
+          - '--https-address=0.0.0.0:4180'
+          - '--http-address='
+          - >-
+            --redirect-url=https://manager-crbc.apps.ocp.<your-cluster-fqdn>/oauth/callback
+          - '--client-id=manager-crbc-oautclient'
+          - '--client-secret=nD4baEuSj4g9i1xh3R5CciGDd7wM890/lKXHJ6IwIDA='
+          - '--cookie-secret=VXNSZ1FqMXFId2YwWWt3UlVTUjFXQT09'
+          - '--upstream=http://localhost:8080'
+          - '--set-xauthrequest=true'
+          - '--pass-basic-auth=true'
+          - '--pass-access-token=true'
+          - '--pass-user-headers=true'
+          - '--pass-user-bearer-token=true'
+          - '--pass-host-header=true'
+          - '--requestheader-extra-headers-prefix=X-Forwarded-Preferred-Username'
+          - '--requestheader-group-headers=X-Remote-Group'
+          - '--requestheader-username-headers=X-Forwarded-Preferred-Username'
+          - '--tls-cert=/etc/tls/tls.crt'
+          - '--tls-key=/etc/tls/tls.key'
+          - >-
+            --openshift-ca=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
