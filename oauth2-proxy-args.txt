@@ -4,6 +4,7 @@
 ### 
 ### enviroments for oauth2-proxy + dex static client config.yaml 
 
+# args
 spec:
       containers:
       - name: oauth2-proxy
@@ -42,6 +43,7 @@ spec:
         ports:
         - containerPort: 4180
           name: http-oauth2
+
 ### dex static clients
 staticClients:
 - id: kubernetes-console
